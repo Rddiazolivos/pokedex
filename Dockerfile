@@ -1,6 +1,6 @@
 # Use the official lightweight Node.js 12 image.
 # https://hub.docker.com/_/node
-FROM node:carbon
+FROM node:12
 
 #install redis
 # RUN apt-get update && apt-get install wget make -y
