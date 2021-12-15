@@ -3,10 +3,11 @@
 FROM node:12-slim
 
 #install redis
-RUN apt-get update && apt-get install wget -y
+RUN apt-get update && apt-get install wget make -y
 RUN wget http://download.redis.io/redis-stable.tar.gz && \
     tar xvzf redis-stable.tar.gz && \
     cd redis-stable && \
+    make && \
     mv src/redis-server /usr/bin/ && \
     cd .. && \
     rm -r redis-stable && \
