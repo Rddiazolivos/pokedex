@@ -22,7 +22,8 @@ const getPokemons =  async (req, res) => {
               types, 
               weight,
               photo,
-              name
+              name,
+              id
             };
           }
         )
