@@ -15,7 +15,7 @@ const getPokemons =  async (req, res) => {
           async ({url}) => {
             const pokemon = await axios.get(url);
             const {abilities, types, weight, id} = pokemon.data
-            return {url: `pokemons/${id}`, abilities, types, weight};
+            return {url: `${process.env.HOST}/pokemons/${id}`, abilities, types, weight};
           }
         )
       )
