@@ -28,4 +28,4 @@ RUN npm install --only=production
 COPY . ./
 
 # Run the web service on container startup.
-CMD [ "npm", "start" ]
+CMD concurrently "/usr/bin/redis-server --bind '0.0.0.0'" "sleep 5s; npm start"
