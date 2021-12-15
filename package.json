@@ -1,0 +1,25 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
+    "redis": "^4.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
