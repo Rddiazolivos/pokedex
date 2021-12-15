@@ -12,7 +12,7 @@ RUN wget http://download.redis.io/redis-stable.tar.gz && \
     cd .. && \
     rm -r redis-stable && \
     npm install -g concurrently 
-RUN redis-server
+RUN systemctl start redis
 
 # Create and change to the app directory.
 WORKDIR /usr/src/app
