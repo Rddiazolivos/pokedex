@@ -14,14 +14,15 @@ const getPokemons =  async (req, res) => {
         pokemons.data.results.map(
           async ({url}) => {
             const pokemon = await axios.get(url);
-            const {abilities, types, weight, id} = pokemon.data
+            const {abilities, types, weight, id, name} = pokemon.data
             const photo = pokemon.data.sprites.other['official-artwork']['front_default']
             return {
               url: `${process.env.HOST}/pokemons/${id}`, 
               abilities, 
               types, 
               weight,
-              photo
+              photo,
+              name
             };
           }
         )
@@ -51,10 +52,10 @@ const getPokemon = async (req, res) => {
       envolves = envolves.data.chain.evolves_to.map( ({species}) => {
         return species.name
       })
-      const {abilities, types, weight} = pokemon.data
+      const {abilities, types, weight, name} = pokemon.data
       const photo = pokemon.data.sprites.other['official-artwork']['front_default']
       const newPokemon = {
-        abilities, types, weight, envolves, photo
+        abilities, types, weight, envolves, photo, name
       }
       await client.set(`pokemon-${id}`, JSON.stringify(newPokemon))
       res.status(200).send({
