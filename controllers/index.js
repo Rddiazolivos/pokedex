@@ -15,7 +15,14 @@ const getPokemons =  async (req, res) => {
           async ({url}) => {
             const pokemon = await axios.get(url);
             const {abilities, types, weight, id} = pokemon.data
-            return {url: `${process.env.HOST}/pokemons/${id}`, abilities, types, weight};
+            const photo = pokemon.data.sprites.other['official-artwork']['front_default']
+            return {
+              url: `${process.env.HOST}/pokemons/${id}`, 
+              abilities, 
+              types, 
+              weight,
+              photo
+            };
           }
         )
       )
