@@ -1,9 +1,9 @@
 # Use the official lightweight Node.js 12 image.
 # https://hub.docker.com/_/node
-FROM node:12-slim
+FROM node:carbon
 
 #install redis
-RUN apt-get update && apt-get install wget make -y
+# RUN apt-get update && apt-get install wget make -y
 RUN wget http://download.redis.io/redis-stable.tar.gz && \
     tar xvzf redis-stable.tar.gz && \
     cd redis-stable && \
